@@ -21,7 +21,7 @@ public:
 	void WithDraw(int amount)
 	{
 		//this->balance.store(this->balance.load() - amount);
-		this->balance.fetch_add(-amount);
+		this->balance.fetch_sub(amount);
 		cout << "¿¹±Ý: " << this->balance << endl;
 	}
 
