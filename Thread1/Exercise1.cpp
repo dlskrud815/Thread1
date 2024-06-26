@@ -3,8 +3,6 @@
 #include <mutex>
 
 using namespace std;
-mutex mtx;
-
 
 class BankAccount
 {
@@ -16,18 +14,21 @@ public:
 
 	void Deposit(int amount) 
 	{
+		lock_guard<mutex> lock(mtx);
 		this->balacne += amount;
 		cout << "예금: " << this->balacne << endl;
 	}
 
 	void WithDraw(int amount)
 	{
+		lock_guard<mutex> lock(mtx);
 		this->balacne -= amount;
 		cout << "예금: " << this->balacne << endl;
 	}
 
 private:
 	int balacne;
+	mutable mutex mtx;
 };
 
 
@@ -37,9 +38,7 @@ void Iterative_Deposit(BankAccount& ba, int amount, int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		mtx.lock();
 		ba.Deposit(amount);
-		mtx.unlock();
 	}
 }
 
@@ -49,9 +48,7 @@ void Iterative_WithDraw(BankAccount& ba, int amount, int count)
 {
 	for (int i = 0; i < count; i++)
 	{
-		mtx.lock();
 		ba.WithDraw(amount);
-		mtx.unlock();
 	}
 }
 
