@@ -13,13 +13,15 @@ public:
 
 	void Deposit(int amount)
 	{
-		this->balance.store(this->balance.load() + amount);
+		//this->balance.store(this->balance.load() + amount);
+		this->balance.fetch_add(amount);
 		cout << "예금: " << this->balance << endl;
 	}
 
 	void WithDraw(int amount)
 	{
-		this->balance.store(this->balance.load() - amount);
+		//this->balance.store(this->balance.load() - amount);
+		this->balance.fetch_add(-amount);
 		cout << "예금: " << this->balance << endl;
 	}
 
