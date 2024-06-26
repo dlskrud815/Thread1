@@ -27,5 +27,8 @@
     <ClCompile Include="Exercise1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Atomic.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
