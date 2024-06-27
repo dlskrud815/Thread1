@@ -30,5 +30,11 @@
     <ClCompile Include="Atomic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="UniqueLock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
